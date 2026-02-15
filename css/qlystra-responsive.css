@@ -1,56 +1,48 @@
-/* Qlystra Technologies Responsive Branding */
+/* Qlystra Technologies Responsive Branding - SOLID COLOR & NORMAL SIZE (RESTORED) */
 .nav-brand {
     display: flex !important;
     align-items: center !important;
     justify-content: flex-start !important;
+    text-decoration: none !important;
 }
 
-.nav-brand .image.w-embed {
-    display: flex;
-    align-items: center;
-}
+/* Base styles for the text logo */
+.qlystra-text-logo {
+    /* Reverted to Space Grotesk */
+    font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
 
-.nav-brand svg {
-    width: auto;
-    height: auto;
-    max-width: 100%;
+    /* Solid Dark Blue/Purple Color */
+    color: #1a1b4b;
+
+    display: inline-block;
+    line-height: 1.2;
+    padding-bottom: 2px;
 }
 
 /* Desktop view (1200px and above) */
 @media (min-width: 1200px) {
-    .nav-brand svg {
-        width: 280px;
-        height: 45px;
-    }
-
-    .nav-brand svg text {
-        font-size: 26px;
+    .qlystra-text-logo {
+        font-size: 32px;
+        /* Normal size */
+        letter-spacing: -0.5px;
+        /* Tighter letter-spacing */
     }
 }
 
 /* Laptop view (768px to 1199px) */
 @media (min-width: 768px) and (max-width: 1199px) {
-    .nav-brand svg {
-        width: 220px;
-        height: 38px;
-    }
-
-    .nav-brand svg text {
-        font-size: 22px;
-        y: 28;
+    .qlystra-text-logo {
+        font-size: 28px;
+        letter-spacing: -0.5px;
     }
 }
 
 /* Tablet view (480px to 767px) */
 @media (min-width: 480px) and (max-width: 767px) {
-    .nav-brand svg {
-        width: 180px;
-        height: 32px;
-    }
-
-    .nav-brand svg text {
-        font-size: 18px;
-        y: 24;
+    .qlystra-text-logo {
+        font-size: 26px;
+        letter-spacing: -0.5px;
     }
 }
 
@@ -60,25 +52,156 @@
         margin-right: auto;
     }
 
-    .nav-brand svg {
-        width: 160px;
-        height: 28px;
-    }
-
-    .nav-brand svg text {
-        font-size: 16px;
-        y: 22;
+    .qlystra-text-logo {
+        font-size: 24px;
+        letter-spacing: -0.5px;
     }
 }
 
-/* Ensure gradient always works */
-#qlystraGradient stop {
+/* Hover effect */
+@media (min-width: 992px) {
+    .nav-brand:hover .qlystra-text-logo {
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+}
+
+/* Timeline Transition for Our Approach Link */
+.nav-link[href="/our-approach"] {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link[href="/our-approach"]::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link[href="/our-approach"]:hover::before {
+    width: 100%;
+}
+
+.nav-link[href="/our-approach"] div {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-link[href="/our-approach"]:hover div {
+    transform: translateY(-2px);
+    color: #764ba2;
+}
+
+/* --- SOLUTION CARDS COMPACT LAYOUT & TRANSITIONS --- */
+
+/* Override specific card styles */
+.case-card.solutions {
+    /* Layout */
+    width: 200px !important;
+    /* Much smaller fixed width */
+    min-height: 250px !important;
+    /* Compact height */
+    margin: 5px !important;
+    /* Minimal spacing */
+    padding: 15px !important;
+    /* Compact padding */
+
+    /* Flex behavior */
+    flex: 0 0 auto !important;
+    /* Don't shrink or grow unexpectedly */
+
+    /* Interactions */
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        background-color 0.3s ease !important;
+
+    /* Borders/Background */
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Hover State */
+.case-card.solutions:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    /* Lift up effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.05) !important;
+    background-color: #fff !important;
+    z-index: 10;
+}
+
+/* Adjust title size inside cards */
+.case-card.solutions .caption div {
+    font-size: 11px !important;
+    /* Tiny caption label */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.case-card.solutions .title_24 {
+    font-size: 16px !important;
+    /* Small Title */
+    line-height: 1.2 !important;
+    font-weight: 700;
+    margin-bottom: 8px !important;
+
+    /* Alignment Fixes */
+    min-height: 40px !important;
+    /* Enforce 2 lines of space */
+    display: flex !important;
+    align-items: center !important;
+    /* Center text vertically */
+}
+
+.case-card.solutions .list-card div {
+    font-size: 12px !important;
+    /* Small Body Text */
+    line-height: 1.4 !important;
+    color: #555;
+
+    /* Alignment Fixes */
+    min-height: 55px !important;
+    /* Enforce consistent description height */
+}
+
+/* Container adjustment */
+.div-block-439 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Gradient text on hover for title */
+.case-card.solutions:hover .title_24 {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     transition: all 0.3s ease;
 }
 
-/* Hover effect for desktop */
-@media (min-width: 992px) {
-    .nav-brand:hover svg text {
-        filter: brightness(1.2);
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .div-block-439 {
+        justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+        /* Horizontal scroll on mobile */
+        overflow-x: auto;
+        padding: 10px 20px;
+        scroll-padding: 20px;
+    }
+
+    .case-card.solutions {
+        width: 240px !important;
+        margin-right: 15px !important;
     }
 }

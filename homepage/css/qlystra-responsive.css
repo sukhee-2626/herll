@@ -1,0 +1,84 @@
+/* Qlystra Technologies Responsive Branding */
+.nav-brand {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+.nav-brand .image.w-embed {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand svg {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Desktop view (1200px and above) */
+@media (min-width: 1200px) {
+    .nav-brand svg {
+        width: 280px;
+        height: 45px;
+    }
+
+    .nav-brand svg text {
+        font-size: 26px;
+    }
+}
+
+/* Laptop view (768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .nav-brand svg {
+        width: 220px;
+        height: 38px;
+    }
+
+    .nav-brand svg text {
+        font-size: 22px;
+        y: 28;
+    }
+}
+
+/* Tablet view (480px to 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .nav-brand svg {
+        width: 180px;
+        height: 32px;
+    }
+
+    .nav-brand svg text {
+        font-size: 18px;
+        y: 24;
+    }
+}
+
+/* Mobile view (below 480px) */
+@media (max-width: 479px) {
+    .nav-brand {
+        margin-right: auto;
+    }
+
+    .nav-brand svg {
+        width: 160px;
+        height: 28px;
+    }
+
+    .nav-brand svg text {
+        font-size: 16px;
+        y: 22;
+    }
+}
+
+/* Ensure gradient always works */
+#qlystraGradient stop {
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for desktop */
+@media (min-width: 992px) {
+    .nav-brand:hover svg text {
+        filter: brightness(1.2);
+    }
+}
