@@ -1,190 +1,209 @@
-# Qlystra Technologies Website
+# Qlystra Technologies - Full Stack Website
 
-A premium, modern website clone of EternaCloud, rebranded as **Qlystra Technologies** - a critical equipment orchestration platform for data center operations.
+A modern, full-stack website for Qlystra Technologies with backend API, database integration, and smooth animations.
 
-## 🌟 Features
+## 🚀 Features
 
-- **Premium Dark Theme Design** - Modern, sleek interface with gradient accents
-- **Fully Responsive** - Optimized for all devices (desktop, tablet, mobile)
-- **Smooth Animations** - Engaging micro-interactions and transitions
-- **Interactive Components** - Expandable sections, tabs, and dynamic content
-- **SEO Optimized** - Proper meta tags, semantic HTML, and structure
-- **Performance Focused** - Lazy loading, debounced events, optimized assets
+### Frontend
+- ✨ Modern, responsive design
+- 🎨 Smooth animations and transitions
+- 📱 Mobile-friendly interface
+- 🎯 Interactive UI components
+- 🌈 Custom Qlystra branding
+
+### Backend
+- 🔐 User authentication (JWT)
+- 📧 Contact form with email notifications
+- 💾 MongoDB database integration
+- 🛡️ Input validation and security
+- 📊 RESTful API architecture
+
+## 📋 Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (local or cloud instance)
+- npm or yarn
+
+## 🛠️ Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/sukhee-2626/herll.git
+   cd qlystra-technologies
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables**
+   - Copy `.env` file and update with your credentials
+   - Set MongoDB URI
+   - Configure email settings (optional)
+
+4. **Start MongoDB**
+   ```bash
+   # If using local MongoDB
+   mongod
+   ```
+
+5. **Run the application**
+   ```bash
+   # Development mode with auto-reload
+   npm run dev
+
+   # Production mode
+   npm start
+   ```
+
+6. **Access the website**
+   - Open browser: `http://localhost:3000`
+   - Branded version: `http://localhost:3000/branded`
 
 ## 📁 Project Structure
 
 ```
 qlystra-technologies/
-├── index.html              # Homepage
-├── what-we-do.html         # Services page
-├── contact.html            # Contact page
-├── about-us.html           # About page
-├── our-approach.html       # Approach page (placeholder)
-├── insights.html           # Insights page (placeholder)
-├── security.html           # Security page (placeholder)
-├── privacy.html            # Privacy policy (placeholder)
-├── terms.html              # Terms of use (placeholder)
-├── styles.css              # Main stylesheet
-├── what-we-do.css          # What We Do page styles
-├── contact.css             # Contact page styles
-├── about.css               # About page styles
-├── script.js               # Main JavaScript
-├── what-we-do.js           # What We Do page scripts
-├── contact.js              # Contact page scripts
-└── README.md               # This file
+├── models/              # Database models
+│   ├── Contact.js       # Contact form submissions
+│   ├── User.js          # User authentication
+│   └── Service.js       # Company services
+├── routes/              # API routes
+│   ├── contact.js       # Contact endpoints
+│   ├── auth.js          # Authentication endpoints
+│   └── services.js      # Services endpoints
+├── css/                 # Stylesheets
+├── js/                  # JavaScript libraries
+├── images/              # Images and assets
+├── fonts/               # Custom fonts
+├── media/               # Videos and media
+├── server.js            # Express server
+├── api-integration.js   # Frontend API client
+├── index.html           # Main homepage
+├── index-branded.html   # Custom branded version
+└── package.json         # Dependencies
 ```
 
-## 🚀 Getting Started
+## 🔌 API Endpoints
 
-### Option 1: Direct Browser Open
-Simply open `index.html` in your web browser.
+### Contact
+- `POST /api/contact/submit` - Submit contact form
+- `GET /api/contact/all` - Get all contacts (admin)
+- `GET /api/contact/:id` - Get contact by ID
+- `DELETE /api/contact/:id` - Delete contact
 
-### Option 2: Local Server (Recommended)
-For the best experience, use a local server:
+### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/me` - Get current user
 
-```bash
-# Using Python 3
-python -m http.server 8000
+### Services
+- `GET /api/services` - Get all services
+- `GET /api/services/:id` - Get service by ID
+- `POST /api/services` - Create service (admin)
+- `PUT /api/services/:id` - Update service (admin)
+- `DELETE /api/services/:id` - Delete service (admin)
 
-# Using Node.js (http-server)
-npx http-server -p 8000
+## 💻 Usage Examples
 
-# Using PHP
-php -S localhost:8000
+### Contact Form Submission
+```javascript
+const response = await fetch('http://localhost:3000/api/contact/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        name: 'John Doe',
+        email: 'john@example.com',
+        subject: 'Inquiry',
+        message: 'Hello!'
+    })
+});
 ```
 
-Then navigate to `http://localhost:8000` in your browser.
+### User Authentication
+```javascript
+// Register
+const user = await QlystraAuth.register('John Doe', 'john@example.com', 'password123');
 
-## 🎨 Design System
+// Login
+const session = await QlystraAuth.login('john@example.com', 'password123');
 
-### Color Palette
-- **Primary**: HSL(240, 100%, 65%) - Vibrant blue
-- **Secondary**: HSL(280, 100%, 70%) - Purple accent
-- **Accent**: HSL(180, 100%, 60%) - Cyan highlight
-- **Background**: Dark theme with HSL(240, 15%, 8%)
+// Get current user
+const currentUser = await QlystraAuth.getCurrentUser();
+```
 
-### Typography
-- **Primary Font**: Inter (body text)
-- **Display Font**: Space Grotesk (headings)
+## 🎨 Customization
 
-### Key Components
-- Gradient orbs with parallax effect
-- Glassmorphic navigation bar
-- Animated feature cards
-- Interactive expandable sections
-- Category tab system
-- Professional contact form
-
-## 📄 Pages Overview
-
-### Homepage (`index.html`)
-- Hero section with animated gradient orbs
-- Trusted features showcase
-- Service value comparison
-- Problem-solution framework
-- Call-to-action sections
-
-### What We Do (`what-we-do.html`)
-- Core services with expandable details
-- Interactive category tabs
-- Value delivery showcase
-- Security integration
-
-### Contact (`contact.html`)
-- Professional contact form
-- Contact information cards
-- Form validation
-- Success notifications
-
-### About Us (`about-us.html`)
-- Mission statement
-- Core values grid
-- Company story
-- Careers section
-
-## 🛠️ Technologies Used
-
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with custom properties
-- **Vanilla JavaScript** - No frameworks, pure JS
-- **Google Fonts** - Inter & Space Grotesk
-- **SVG Icons** - Scalable vector graphics
-
-## ✨ Key Features
-
-### Interactive Elements
-- Mobile-responsive hamburger menu
-- Smooth scroll navigation
-- Expandable service details
-- Tab-based content switching
-- Form validation with real-time feedback
-- Parallax mouse effects on gradient orbs
-
-### Animations
-- Fade-in on scroll
-- Hover transformations
-- Gradient background animations
-- Smooth transitions throughout
-
-### Performance Optimizations
-- Debounced scroll events
-- Intersection Observer for lazy animations
-- Optimized CSS with custom properties
-- Minimal JavaScript footprint
-
-## 🎯 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 📱 Responsive Breakpoints
-
-- **Desktop**: 1400px and above
-- **Laptop**: 992px - 1399px
-- **Tablet**: 768px - 991px
-- **Mobile**: Below 768px
-
-## 🔧 Customization
-
-### Changing Colors
-Edit the CSS custom properties in `styles.css`:
-
+### Brand Colors
+Edit `styles-branded.css`:
 ```css
 :root {
-    --color-primary: hsl(240, 100%, 65%);
-    --color-secondary: hsl(280, 100%, 70%);
-    --color-accent: hsl(180, 100%, 60%);
-    /* ... */
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --accent: #f093fb;
 }
 ```
 
-### Adding New Pages
-1. Create new HTML file
-2. Copy header/footer from existing pages
-3. Create corresponding CSS file if needed
-4. Link in navigation
+### Email Configuration
+Update `.env`:
+```
+EMAIL_HOST=smtp.gmail.com
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+```
 
-## 📞 Contact Information
+## 🔒 Security
 
-- **Website**: qlystra.com (placeholder)
-- **Email**: contact@qlystra.com (placeholder)
-- **Phone**: +1 (555) 123-4567 (placeholder)
+- Passwords are hashed using bcrypt
+- JWT tokens for authentication
+- Input validation on all endpoints
+- CORS enabled for cross-origin requests
+- Environment variables for sensitive data
+
+## 📦 Technologies Used
+
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB, Mongoose
+- **Authentication**: JWT, bcryptjs
+- **Email**: Nodemailer
+- **Validation**: express-validator
+
+## 🚀 Deployment
+
+### Deploy to Heroku
+```bash
+heroku create qlystra-technologies
+git push heroku main
+heroku config:set MONGODB_URI=your-mongodb-uri
+```
+
+### Deploy to Vercel (Frontend)
+```bash
+vercel --prod
+```
 
 ## 📝 License
 
-This is a demonstration project created for Qlystra Technologies.
+MIT License - feel free to use this project for your own purposes.
 
-## 🙏 Credits
+## 👥 Contact
 
-- Design inspiration: EternaCloud
-- Fonts: Google Fonts (Inter, Space Grotesk)
-- Icons: Custom SVG graphics
+- Website: [Qlystra Technologies](http://localhost:3000)
+- Email: contact@qlystra.com
+- GitHub: [@sukhee-2626](https://github.com/sukhee-2626)
+
+## 🎯 Future Enhancements
+
+- [ ] Admin dashboard
+- [ ] Blog system
+- [ ] Newsletter subscription
+- [ ] Live chat support
+- [ ] Analytics integration
+- [ ] Payment gateway
+- [ ] Multi-language support
 
 ---
 
-**Built with ❤️ for Qlystra Technologies**
-
-*Nothing is impossible*
+**Built with ❤️ by Qlystra Technologies**
