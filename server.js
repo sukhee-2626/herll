@@ -1,74 +1,67 @@
-// Qlystra Technologies - Backend Server
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
-const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 const path = require('path');
-require('dotenv').config();
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// MongoDB Connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/qlystra';
+// Serve static files
+app.use(express.static(path.join(__dirname)));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/fonts', express.static(path.join(__dirname, 'fonts')));
+app.use('/media', express.static(path.join(__dirname, 'media')));
 
-mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => console.log('✅ MongoDB Connected Successfully'))
-    .catch(err => console.log('❌ MongoDB Connection Error:', err));
-
-// Import Routes
+// API Routes
 const contactRoutes = require('./routes/contact');
 const authRoutes = require('./routes/auth');
 const servicesRoutes = require('./routes/services');
 
-// Use Routes
 app.use('/api/contact', contactRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/services', servicesRoutes);
 
-// Serve HTML files
+// Health check
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'OK', message: 'Qlystra Technologies API is running' });
+});
+
+// Serve HTML pages
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/branded', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index-branded.html'));
-});
-
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-    res.json({
-        status: 'OK',
-        message: 'Qlystra Technologies API is running',
-        timestamp: new Date()
-    });
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({
-        error: 'Something went wrong!',
-        message: err.message
-    });
+app.get('/:page.html', (req, res) => {
+    res.sendFile(path.join(__dirname, `${req.params.page}.html`));
 });
 
 // 404 handler
 app.use((req, res) => {
-    res.status(404).json({ error: 'Route not found' });
+    res.status(404).sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 Qlystra Technologies Server running on http://localhost:${PORT}`);
-    console.log(`📁 Serving files from: ${__dirname}`);
+// Error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Something went wrong!' });
 });
+
+const PORT = process.env.PORT || 3000;
+
+// For Vercel serverless
+if (process.env.VERCEL) {
+    module.exports = app;
+} else {
+    // For local development
+    app.listen(PORT, () => {
+        console.log(`🚀 Qlystra Technologies server running on port ${PORT}`);
+    });
+}
