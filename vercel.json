@@ -1,4 +1,21 @@
 {
+    "redirects": [
+        {
+            "source": "/contact-us",
+            "destination": "/contact.html",
+            "permanent": false
+        },
+        {
+            "source": "/about",
+            "destination": "/about-us.html",
+            "permanent": false
+        },
+        {
+            "source": "/approach",
+            "destination": "/our-approach.html",
+            "permanent": false
+        }
+    ],
     "rewrites": [
         {
             "source": "/api/:path*",
