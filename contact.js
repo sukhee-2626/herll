@@ -28,9 +28,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 newsletter: formData.get('newsletter') === 'on'
             };
 
-            // Simulate form submission (replace with actual API call)
-            setTimeout(() => {
-                console.log('Form submitted:', data);
+            try {
+                // Add timestamp
+                const submissionData = {
+                    ...data,
+                    timestamp: new Date().toISOString(),
+                    date: new Date().toLocaleString()
+                };
+
+                // Store in localStorage for admin dashboard
+                const contacts = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+                contacts.push(submissionData);
+                localStorage.setItem('contactSubmissions', JSON.stringify(contacts));
+
+                // Submit to Google Sheets
+                // Replace this URL with your Google Apps Script Web App URL
+                const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+                if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                    try {
+                        await fetch(GOOGLE_SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(submissionData)
+                        });
+                    } catch (sheetError) {
+                        console.warn('Google Sheets submission failed, but data is saved locally:', sheetError);
+                    }
+                }
 
                 // Show success notification
                 showNotification('Thank you for reaching out! We\'ll get back to you within 24 hours.', 'success');
@@ -42,9 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
 
-                // Optional: Redirect to thank you page
-                // window.location.href = 'thank-you.html';
-            }, 1500);
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                showNotification('Sorry, there was an error sending your message. Please try again or email us directly.', 'error');
+
+                // Restore button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         });
 
         // Real-time validation

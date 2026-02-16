@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Blog Post | Qlystra Technologies</title>
+    <meta name="description" id="pageDescription"
+        content="Read our latest insights on infrastructure management and digital transformation.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Qlystra</h1>
+                </a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="what-we-do.html">What we do</a>
+                <a href="our-approach.html">Our approach</a>
+                <a href="about-us.html">About us</a>
+                <a href="blog.html" class="active">Insights</a>
+                <a href="contact.html" class="btn-primary">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post-page">
+        <div class="container">
+            <!-- Back Button -->
+            <a href="blog.html" class="back-button">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Back to Insights
+            </a>
+
+            <!-- Post Header -->
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-category" id="postCategory">Technology</span>
+                    <span class="post-date" id="postDate">February 10, 2026</span>
+                    <span class="post-read-time" id="postReadTime">8 min read</span>
+                </div>
+                <h1 class="post-title" id="postTitle">Loading...</h1>
+                <p class="post-excerpt" id="postExcerpt">Loading article...</p>
+
+                <div class="post-author">
+                    <div class="author-avatar" id="authorAvatar">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name" id="authorName">Author Name</div>
+                        <div class="author-role" id="authorRole">Role</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="post-featured-image" id="postFeaturedImage">
+                <!-- Image will be loaded here -->
+            </div>
+
+            <!-- Post Content -->
+            <div class="post-content" id="postContent">
+                <p>Loading content...</p>
+            </div>
+
+            <!-- Post Tags -->
+            <div class="post-tags" id="postTags">
+                <!-- Tags will be loaded here -->
+            </div>
+
+            <!-- Share Buttons -->
+            <div class="post-share">
+                <h3>Share this article</h3>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareOnTwitter()">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                        </svg>
+                        Twitter
+                    </button>
+                    <button class="share-btn" onclick="shareOnLinkedIn()">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                        LinkedIn
+                    </button>
+                    <button class="share-btn" onclick="copyLink()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Copy Link
+                    </button>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Related Posts -->
+    <section class="related-posts">
+        <div class="container">
+            <h2 class="section-title">Related Articles</h2>
+            <div class="posts-grid" id="relatedPosts">
+                <!-- Related posts will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Operations?</h2>
+            <p>Let's discuss how we can help you achieve your infrastructure management goals</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-primary">Get in Touch</a>
+                <a href="what-we-do.html" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Qlystra Technologies</h3>
+                    <p>Nothing is impossible</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="what-we-do.html">What we do</a></li>
+                        <li><a href="our-approach.html">Our Approach</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="blog.html">Insights</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Join Us</h4>
+                    <ul>
+                        <li><a href="about-us.html#join-our-team">Join our team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="security.html">Security</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qlystra Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="js/blog-data.js"></script>
+    <script src="js/blog-post.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Qlystra Technologies</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            background: hsl(240, 10%, 5%);
+        }
+
+        .admin-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid hsl(240, 10%, 15%);
+        }
+
+        .admin-header h1 {
+            color: hsl(0, 0%, 100%);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: hsl(240, 10%, 10%);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid hsl(240, 10%, 15%);
+        }
+
+        .stat-card h3 {
+            color: hsl(0, 0%, 60%);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .value {
+            color: hsl(0, 0%, 100%);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: hsl(240, 10%, 10%);
+            border: 1px solid hsl(240, 10%, 20%);
+            border-radius: 0.5rem;
+            color: hsl(0, 0%, 100%);
+            font-size: 0.9375rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: hsl(280, 70%, 60%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: hsl(280, 70%, 55%);
+        }
+
+        .btn-secondary {
+            background: hsl(240, 10%, 15%);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: hsl(240, 10%, 20%);
+        }
+
+        .submissions-table {
+            background: hsl(240, 10%, 10%);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid hsl(240, 10%, 15%);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: hsl(240, 10%, 8%);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            color: hsl(0, 0%, 70%);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid hsl(240, 10%, 15%);
+        }
+
+        td {
+            padding: 1rem;
+            color: hsl(0, 0%, 90%);
+            border-bottom: 1px solid hsl(240, 10%, 12%);
+        }
+
+        tr:hover {
+            background: hsl(240, 10%, 12%);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-new {
+            background: hsl(120, 60%, 20%);
+            color: hsl(120, 60%, 70%);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: hsl(0, 0%, 50%);
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .action-btn {
+            padding: 0.5rem 1rem;
+            background: hsl(240, 10%, 15%);
+            border: none;
+            border-radius: 0.25rem;
+            color: hsl(0, 0%, 90%);
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .action-btn:hover {
+            background: hsl(240, 10%, 20%);
+        }
+
+        .message-preview {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: 1rem;
+            }
+
+            .submissions-table {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 800px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>📊 Contact Form Submissions</h1>
+            <p style="color: hsl(0, 0%, 60%);">Manage and view all contact form submissions</p>
+        </div>
+
+        <div class="admin-stats">
+            <div class="stat-card">
+                <h3>Total Submissions</h3>
+                <div class="value" id="totalCount">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>This Week</h3>
+                <div class="value" id="weekCount">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>This Month</h3>
+                <div class="value" id="monthCount">0</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by name, email, company...">
+            </div>
+            <button class="btn btn-secondary" onclick="exportToCSV()">📥 Export CSV</button>
+            <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear All</button>
+            <button class="btn btn-primary" onclick="location.href='contact.html'">← Back to Contact</button>
+        </div>
+
+        <div class="submissions-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="submissionsBody">
+                    <!-- Submissions will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let allSubmissions = [];
+
+        function loadSubmissions() {
+            const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+            allSubmissions = submissions.reverse(); // Show newest first
+            updateStats();
+            renderSubmissions(allSubmissions);
+        }
+
+        function updateStats() {
+            const now = new Date();
+            const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+            const weekCount = allSubmissions.filter(s => new Date(s.timestamp) > weekAgo).length;
+            const monthCount = allSubmissions.filter(s => new Date(s.timestamp) > monthAgo).length;
+
+            document.getElementById('totalCount').textContent = allSubmissions.length;
+            document.getElementById('weekCount').textContent = weekCount;
+            document.getElementById('monthCount').textContent = monthCount;
+        }
+
+        function renderSubmissions(submissions) {
+            const tbody = document.getElementById('submissionsBody');
+
+            if (submissions.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7">
+                            <div class="empty-state">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <h3>No submissions yet</h3>
+                                <p>Contact form submissions will appear here</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = submissions.map((sub, index) => `
+                <tr>
+                    <td>${sub.date || new Date(sub.timestamp).toLocaleString()}</td>
+                    <td><strong>${sub.name}</strong></td>
+                    <td>${sub.email}</td>
+                    <td>${sub.company || '-'}</td>
+                    <td><span class="status-badge status-new">${sub.subject}</span></td>
+                    <td><div class="message-preview" title="${sub.message}">${sub.message}</div></td>
+                    <td>
+                        <button class="action-btn" onclick="viewDetails(${index})">View</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function viewDetails(index) {
+            const sub = allSubmissions[index];
+            const details = `
+Name: ${sub.name}
+Email: ${sub.email}
+Company: ${sub.company || 'Not provided'}
+Phone: ${sub.phone || 'Not provided'}
+Subject: ${sub.subject}
+Newsletter: ${sub.newsletter ? 'Yes' : 'No'}
+Date: ${sub.date || new Date(sub.timestamp).toLocaleString()}
+
+Message:
+${sub.message}
+            `;
+            alert(details);
+        }
+
+        function exportToCSV() {
+            if (allSubmissions.length === 0) {
+                alert('No submissions to export');
+                return;
+            }
+
+            const headers = ['Date', 'Name', 'Email', 'Company', 'Phone', 'Subject', 'Message', 'Newsletter'];
+            const rows = allSubmissions.map(sub => [
+                sub.date || new Date(sub.timestamp).toLocaleString(),
+                sub.name,
+                sub.email,
+                sub.company || '',
+                sub.phone || '',
+                sub.subject,
+                sub.message.replace(/"/g, '""'),
+                sub.newsletter ? 'Yes' : 'No'
+            ]);
+
+            const csv = [
+                headers.join(','),
+                ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+            ].join('\n');
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `contact-submissions-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+        }
+
+        function clearAll() {
+            if (confirm('Are you sure you want to delete all submissions? This cannot be undone.')) {
+                localStorage.removeItem('contactSubmissions');
+                allSubmissions = [];
+                updateStats();
+                renderSubmissions([]);
+            }
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = allSubmissions.filter(sub =>
+                sub.name.toLowerCase().includes(query) ||
+                sub.email.toLowerCase().includes(query) ||
+                (sub.company && sub.company.toLowerCase().includes(query)) ||
+                sub.message.toLowerCase().includes(query)
+            );
+            renderSubmissions(filtered);
+        });
+
+        // Load on page load
+        loadSubmissions();
+    </script>
+</body>
+
+</html>
