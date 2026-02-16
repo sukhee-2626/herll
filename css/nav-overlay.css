@@ -1,0 +1,194 @@
+/* CSS Variables from styles.css for Navigation */
+:root {
+    /* Colors - Premium Dark Theme */
+    --color-primary: hsl(240, 100%, 65%);
+    --color-primary-light: hsl(240, 100%, 75%);
+    --color-primary-dark: hsl(240, 100%, 55%);
+    --color-secondary: hsl(280, 100%, 70%);
+    --color-accent: hsl(180, 100%, 60%);
+    --color-bg-primary: hsl(240, 15%, 8%);
+    --color-bg-secondary: hsl(240, 12%, 12%);
+    --color-bg-tertiary: hsl(240, 10%, 16%);
+    --color-text-primary: hsl(0, 0%, 98%);
+    --color-text-secondary: hsl(0, 0%, 75%);
+    --color-text-muted: hsl(0, 0%, 55%);
+    --color-border: hsla(0, 0%, 100%, 0.1);
+    --color-border-hover: hsla(0, 0%, 100%, 0.2);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: 'Space Grotesk', var(--font-primary);
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-2xl: 1.5rem;
+
+    /* Spacing */
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    /* Shadows */
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+}
+
+/* Navigation Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: hsla(240, 15%, 8%, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+}
+
+.navbar.scrolled {
+    background: hsla(240, 15%, 8%, 0.95);
+    box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-family: var(--font-display);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-fast);
+    position: relative;
+    text-decoration: none;
+    font-family: var(--font-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-base);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--color-text-primary);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: var(--color-text-primary);
+    transition: all var(--transition-base);
+}
+
+/* Button style for Contact in nav */
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    /* Fallback */
+    padding: var(--spacing-sm, 1rem) var(--spacing-lg, 2rem);
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-primary);
+    background-size: 300%;
+    background-position: left;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-position: right;
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        /* Adjust based on navbar height */
+        left: 0;
+        right: 0;
+        background: var(--color-bg-primary);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+}
