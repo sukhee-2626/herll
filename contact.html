@@ -56,130 +56,28 @@
 
 <body class="body_dark">
     <!-- Navigation -->
-    <div class="navbar-no-shadow">
-        <div class="nav desktop">
-            <div class="container-regular">
-                <div class="nav-b-desktop">
-                    <a aria-label="navigation" href="index.html" class="nav-brand w-nav-brand">
-                        <span class="qlystra-text-logo">Qlystra</span>
-                    </a>
-                    <div class="nav-menu-wrapper">
-                        <div class="links_block">
-                            <a href="what-we-do.html" class="nav-link desktop w-inline-block">
-                                <div>What We Do</div>
-                            </a>
-                            <a href="our-approach.html" class="nav-link desktop w-inline-block">
-                                <div>Our approach</div>
-                            </a>
-                            <a href="about-us.html" class="nav-link desktop w-inline-block">
-                                <div>About us</div>
-                            </a>
-                            <a href="blog.html" class="nav-link desktop w-inline-block">
-                                <div>Blog</div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="nav-button-wr">
-                        <div class="div-block-757">
-                            <div class="search-wrapper click"><a href="#" class="action-btn search w-button"></a></div>
-                        </div>
-                        <a href="contact.html" aria-current="page" class="button main-cta w-inline-block w--current">
-                            <div class="btn-padding">
-                                <div class="label">Contact</div>
-                            </div>
-                            <div class="css-button__style w-embed">
-                                <style>
-                                    @media (min-width: 992px) {
-                                        .button {
-                                            background-size: 300%;
-                                        }
-
-                                        .button:hover,
-                                        .button:focus {
-                                            background-position: right;
-                                        }
-                                    }
-
-                                    @media (min-width: 1px) {
-                                        .button {
-                                            background-size: 300%;
-                                            background-position: left;
-                                        }
-                                    }
-                                </style>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Qlystra</h1>
+                </a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="what-we-do.html">What we do</a>
+                <a href="our-approach.html">Our approach</a>
+                <a href="about-us.html">About us</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html" class="btn-primary active">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-
-        <!-- Mobile Navigation -->
-        <div class="nav mobile">
-            <div class="container-regular">
-                <div class="nav-b-mobile">
-                    <div class="div-block-572">
-                        <a href="index.html" class="nav-brand w-nav-brand">
-                            <span class="qlystra-text-logo">Qlystra</span>
-                        </a>
-                        <div class="div-block-767">
-                            <div class="search-wrapper click mobile-hide"><a href="#"
-                                    class="action-btn search w-button"></a></div>
-                            <div data-w-id="mobile-menu-button" class="menu-button">
-                                <div class="top_line"></div>
-                                <div class="bottom_line"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="div-block-392">
-                        <div class="links_block">
-                            <a href="what-we-do.html" class="nav-link w-inline-block">
-                                <div>What We Do</div>
-                            </a>
-                            <a href="our-approach.html" class="nav-link w-inline-block">
-                                <div>Our Approach</div>
-                            </a>
-                            <a href="about-us.html" class="nav-link w-inline-block">
-                                <div>About Us</div>
-                            </a>
-                            <a href="blog.html" class="nav-link w-inline-block">
-                                <div>Blog</div>
-                            </a>
-                        </div>
-                        <div class="nav-button-wr">
-                            <a href="contact.html" aria-current="page"
-                                class="button main-cta w-inline-block w--current">
-                                <div class="btn-padding">
-                                    <div class="label">Contact</div>
-                                </div>
-                                <div class="css-button__style w-embed">
-                                    <style>
-                                        @media (min-width: 992px) {
-                                            .button {
-                                                background-size: 300%;
-                                            }
-
-                                            .button:hover,
-                                            .button:focus {
-                                                background-position: right;
-                                            }
-                                        }
-
-                                        @media (min-width: 1px) {
-                                            .button {
-                                                background-size: 300%;
-                                                background-position: left;
-                                            }
-                                        }
-                                    </style>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="contact-hero">
