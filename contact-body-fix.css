@@ -1,0 +1,18 @@
+/* Base body styles - ADD THIS AFTER LINE 47 IN contact.css */
+body {
+    background-color: #0f0f1e !important;
+    color: #ffffff !important;
+}
+
+.navbar-no-shadow {
+    background: #0f0f1e;
+    z-index: 1000;
+}
+
+.page-title {
+    color: #ffffff;
+}
+
+.page-subtitle {
+    color: #b8b8d1;
+}
