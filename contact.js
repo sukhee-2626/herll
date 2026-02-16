@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Submit to Google Sheets
                 // Replace this URL with your Google Apps Script Web App URL
-                const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+                const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpzwAqElerDwETuIKgSYIxsCckvwJ_xwwH0HbYcn8d9O7hvULde9sBnCQ5LAtq16bnAw/exec';
 
                 if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
                     try {
