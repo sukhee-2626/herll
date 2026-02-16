@@ -3058,6 +3058,7 @@
 
         // Delay before visiting another page for specified classes
         $('.nav-link, .nav-brand, .button, .main-cta, .button-gradient, .footer_link, .role-btn, .article-link').click(function (e) {
+            if ($(this).attr('href').startsWith('#')) return;
             e.preventDefault();
             setTimeout(function (url) { window.location = url; }, 1500, this.href);
         });
