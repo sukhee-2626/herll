@@ -5,17 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Qlystra Technologies</title>
-    <meta name="description"
-        content="Get in touch with Qlystra Technologies. Let's discuss how we can help transform your critical equipment operations.">
 
     <!-- Webflow CSS -->
     <link href="css/eterna-stage.webflow.shared.1aee94b13.css" rel="stylesheet" type="text/css" crossorigin="anonymous">
     <link href="css/qlystra-responsive.css" rel="stylesheet" type="text/css">
-
-    <!-- Custom Contact CSS -->
-    <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="contact-additional.css">
-    <link rel="stylesheet" href="contact-body-fix.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,336 +21,470 @@
     <link href="images/67937f3904e46a3162e1e73b_32x32.png" rel="shortcut icon" type="image/x-icon">
     <link href="images/67937f3d0e2cec47d8da89af_256x256.png" rel="apple-touch-icon">
 
-    <!-- Navigation Active State Styling -->
     <style>
-        @media screen and (min-width: 768px) {
-            .nav-link.w--current {
-                position: relative;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f1e;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #0f0f1e;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            background: linear-gradient(135deg, #C86FFF 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #b8b8d1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #C86FFF;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #C86FFF 0%, #8B5CF6 100%);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 40px 60px;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #C86FFF 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #b8b8d1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #b8b8d1;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: #C86FFF;
+            transform: translateX(5px);
+        }
+
+        .info-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #C86FFF;
+        }
+
+        .info-card p {
+            color: #b8b8d1;
+            margin: 0;
+        }
+
+        /* Form */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #C86FFF 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #C86FFF;
+            box-shadow: 0 0 0 3px rgba(200, 111, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            accent-color: #C86FFF;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            color: #b8b8d1;
+            font-weight: 400;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #C86FFF 0%, #8B5CF6 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(200, 111, 255, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 40px 30px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #b8b8d1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #C86FFF;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #6b6b8a;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
-            .nav-link.w--current::before,
-            .nav-link.w--current::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                width: 100%;
-                height: 0.139vw;
-                background: linear-gradient(to right, #1B4DFE, #AC24FF, #E59DFA, #FFD600, #FE881B);
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
 
-            .nav-link.w--current::before {
-                top: 0;
+            .hero h1 {
+                font-size: 36px;
             }
 
-            .nav-link.w--current::after {
-                bottom: 0;
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
-<body class="body_dark">
-    <div class="navbar-no-shadow">
-        <div class="nav desktop">
-            <div class="container-regular">
-                <div class="nav-b-desktop"><a aria-label="navigation" data-w-id="f0fe29de-1cc3-20da-42cd-1a8d15d398d4"
-                        href="/" class="nav-brand w-nav-brand">
-                        <span class="qlystra-text-logo">Qlystra</span>
-                    </a>
-                    <div class="nav-menu-wrapper">
-                        <div class="links_block"><a href="what-we-do.html" class="nav-link desktop w-inline-block">
-                                <div>What We Do</div>
-                            </a><a href="our-approach.html" class="nav-link desktop w-inline-block">
-                                <div>Our approach</div>
-                            </a><a href="about-us.html" class="nav-link desktop w-inline-block">
-                                <div>About us</div>
-                            </a><a href="index.html#where-we-fit" class="nav-link desktop w-inline-block">
-                                <div>Where We Fit</div>
-                            </a><a href="blogs.html" class="nav-link desktop w-inline-block">
-                                <div>Blog</div>
-                            </a></div>
-                    </div>
-                    <div class="nav-button-wr">
-                        <div class="div-block-757">
-                            <div class="search-wrapper click"><a href="#" class="action-btn search w-button"></a></div>
-                        </div><a href="/contact-us" aria-current="page"
-                            class="button main-cta w-inline-block w--current">
-                            <div class="btn-padding">
-                                <div class="label">Contact</div>
-                            </div>
-                            <div class="css-button__style w-embed">
-                                <style>
-                                    @media (min-width: 992px) {
-                                        .button {
-                                            background-size: 300%;
-                                        }
-
-                                        .button:hover,
-                                        .button:focus {
-                                            background-position: right;
-                                        }
-                                    }
-
-                                    @media (min-width: 1px) {
-                                        .button {
-                                            background-size: 300%;
-                                            background-position: left;
-                                        }
-                                    }
-                                </style>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Qlystra</a>
+            <div class="nav-links">
+                <a href="what-we-do.html">What We Do</a>
+                <a href="our-approach.html">Our Approach</a>
+                <a href="about-us.html">About Us</a>
+                <a href="index.html#where-we-fit">Where We Fit</a>
+                <a href="blogs.html">Blog</a>
+                <a href="contact.html" class="contact-btn active">Contact</a>
             </div>
         </div>
-        <div class="nav mobile">
-            <div class="container-regular">
-                <div class="nav-b-mobile">
-                    <div class="div-block-572"><a data-w-id="5425d633-a66a-a157-faf7-9811c416425a" href="/"
-                            class="nav-brand w-nav-brand">
-                            <span class="qlystra-text-logo">Qlystra</span>
-                        </a>
-                        <div class="div-block-767">
-                            <div class="search-wrapper click mobile-hide"><a href="#"
-                                    class="action-btn search w-button"></a></div>
-                            <div data-w-id="5425d633-a66a-a157-faf7-9811c416425d" class="menu-button">
-                                <div class="top_line"></div>
-                                <div class="bottom_line"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="div-block-392">
-                        <div class="links_block"><a href="/what-we-do" class="nav-link w-inline-block">
-                                <div>What We Do</div>
-                            </a><a href="/our-approach" class="nav-link w-inline-block">
-                                <div>Our Approach</div>
-                            </a><a href="/about-us" class="nav-link w-inline-block">
-                                <div>About Us</div>
-                            </a><a href="/where-we-fit" class="nav-link w-inline-block">
-                                <div>Where We Fit</div>
-                            </a><a href="/blogs" class="nav-link w-inline-block">
-                                <div>Blog</div>
-                            </a></div>
-                        <div class="nav-button-wr"><a href="/contact-us" aria-current="page"
-                                class="button main-cta w-inline-block w--current">
-                                <div class="btn-padding">
-                                    <div class="label">Contact</div>
-                                </div>
-                                <div class="css-button__style w-embed">
-                                    <style>
-                                        @media (min-width: 992px) {
-                                            .button {
-                                                background-size: 300%;
-                                            }
-
-                                            .button:hover,
-                                            .button:focus {
-                                                background-position: right;
-                                            }
-                                        }
-
-                                        @media (min-width: 1px) {
-                                            .button {
-                                                background-size: 300%;
-                                                background-position: left;
-                                            }
-                                        }
-                                    </style>
-                                </div>
-                            </a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="contact-hero">
-        <div class="container">
-            <h1 class="page-title fade-in">Let's Connect</h1>
-            <p class="page-subtitle fade-in-delay-1">Ready to transform how you manage critical equipment? We're here to
-                help.</p>
-        </div>
+    <section class="hero">
+        <h1>Let's Connect</h1>
+        <p>Ready to transform how you manage critical equipment? We're here to help.</p>
     </section>
 
-    <!-- Contact Form Section -->
+    <!-- Contact Section -->
     <section class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Get in Touch</h2>
-                    <p>Whether you're looking to streamline operations, improve vendor coordination, or scale your
-                        infrastructure, our team is ready to discuss your unique challenges.</p>
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>Whether you're looking to streamline operations, improve vendor coordination, or scale your
+                infrastructure, our team is ready to discuss your unique challenges.</p>
 
-                    <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <h3>Our Location</h3>
-                            <p>Global Operations<br>Serving Data Centers Worldwide</p>
-                        </div>
+            <div class="info-card">
+                <h3>📍 Location</h3>
+                <p>Bangalore, India</p>
+            </div>
 
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.095 3.90347 2.12787 3.62476 2.21649 3.36162C2.30512 3.09849 2.44756 2.85669 2.63476 2.65162C2.82196 2.44655 3.0498 2.28271 3.30379 2.17052C3.55777 2.05833 3.83233 2.00026 4.10999 2H7.10999C7.5953 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04207 3.23945 9.10999 3.72C9.23662 4.68007 9.47144 5.62273 9.80999 6.53C9.94454 6.88792 9.97366 7.27691 9.8939 7.65088C9.81415 8.02485 9.62886 8.36811 9.35999 8.64L8.08999 9.91C9.51355 12.4135 11.5864 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <h3>Phone</h3>
-                            <p>+1 (555) 123-4567<br>Mon-Fri, 9AM-6PM EST</p>
-                        </div>
+            <div class="info-card">
+                <h3>📧 Email</h3>
+                <p>contact@qlystra.com</p>
+            </div>
 
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <h3>Email</h3>
-                            <p>contact@qlystra.com<br>We respond within 24 hours</p>
-                        </div>
+            <div class="info-card">
+                <h3>📞 Phone</h3>
+                <p>+91 (555) 123-4567</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
                     </div>
                 </div>
 
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
-                        <h3>Send us a message</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Your company">
+                    </div>
 
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="John Doe">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="john@company.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company" placeholder="Your Company">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Select a topic</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="services">Services Information</option>
-                                <option value="partnership">Partnership Opportunity</option>
-                                <option value="support">Technical Support</option>
-                                <option value="careers">Careers</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required
-                                placeholder="Tell us about your needs..."></textarea>
-                        </div>
-
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="newsletter" id="newsletter">
-                                <span>I'd like to receive updates and insights from Qlystra Technologies</span>
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn-primary submit-btn">
-                            <span>Send Message</span>
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                    </form>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Explore Our Solutions</h2>
-            <p>Learn more about how we can help transform your operations</p>
-            <div class="cta-buttons">
-                <a href="what-we-do.html" class="btn-primary">What We Do</a>
-                <a href="our-approach.html" class="btn-secondary">Our Approach</a>
-            </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="project">Project Discussion</option>
+                        <option value="partnership">Partnership Opportunity</option>
+                        <option value="support">Technical Support</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required
+                        placeholder="Tell us about your project or inquiry..."></textarea>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">Subscribe to our newsletter for updates and insights</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message →</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Qlystra Technologies</h3>
-                    <p>Nothing is impossible</p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="what-we-do.html">What we do</a></li>
-                        <li><a href="our-approach.html">Our Approach</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="insights.html">Insights</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Join Us</h4>
-                    <ul>
-                        <li><a href="about-us.html#join-our-team">Join our team</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="security.html">Security</a></li>
-                        <li><a href="privacy.html">Privacy</a></li>
-                        <li><a href="terms.html">Terms</a></li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Qlystra Technologies</h4>
+                <p style="color: #b8b8d1;">Nothing is impossible</p>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 Qlystra Technologies. All rights reserved.</p>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="what-we-do.html">What we do</a></li>
+                    <li><a href="our-approach.html">Our Approach</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                </ul>
             </div>
+
+            <div class="footer-section">
+                <h4>Join Us</h4>
+                <ul>
+                    <li><a href="about-us.html#join-our-team">Join our team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Qlystra Technologies. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script src="contact.js"></script>
 </body>
 
