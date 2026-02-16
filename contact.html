@@ -7,39 +7,178 @@
     <title>Contact Us | Qlystra Technologies</title>
     <meta name="description"
         content="Get in touch with Qlystra Technologies. Let's discuss how we can help transform your critical equipment operations.">
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Webflow CSS -->
+    <link href="css/eterna-stage.webflow.shared.1aee94b13.css" rel="stylesheet" type="text/css" crossorigin="anonymous">
+    <link href="css/qlystra-responsive.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom Contact CSS -->
     <link rel="stylesheet" href="contact.css">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <!-- Favicon -->
+    <link href="images/67937f3904e46a3162e1e73b_32x32.png" rel="shortcut icon" type="image/x-icon">
+    <link href="images/67937f3d0e2cec47d8da89af_256x256.png" rel="apple-touch-icon">
+
+    <!-- Navigation Active State Styling -->
+    <style>
+        @media screen and (min-width: 768px) {
+            .nav-link.w--current {
+                position: relative;
+            }
+
+            .nav-link.w--current::before,
+            .nav-link.w--current::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 0.139vw;
+                background: linear-gradient(to right, #1B4DFE, #AC24FF, #E59DFA, #FFD600, #FE881B);
+            }
+
+            .nav-link.w--current::before {
+                top: 0;
+            }
+
+            .nav-link.w--current::after {
+                bottom: 0;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="body_dark">
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">
-                    <h1>Qlystra</h1>
-                </a>
-            </div>
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="what-we-do.html">What we do</a>
-                <a href="our-approach.html">Our approach</a>
-                <a href="about-us.html">About us</a>
-                <a href="insights.html">Insights</a>
-                <a href="contact.html" class="btn-primary active">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="navbar-no-shadow">
+        <div class="nav desktop">
+            <div class="container-regular">
+                <div class="nav-b-desktop">
+                    <a aria-label="navigation" href="/" class="nav-brand w-nav-brand">
+                        <span class="qlystra-text-logo">Qlystra</span>
+                    </a>
+                    <div class="nav-menu-wrapper">
+                        <div class="links_block">
+                            <a href="/what-we-do" class="nav-link desktop w-inline-block">
+                                <div>What We Do</div>
+                            </a>
+                            <a href="/our-approach" class="nav-link desktop w-inline-block">
+                                <div>Our approach</div>
+                            </a>
+                            <a href="/about-us" class="nav-link desktop w-inline-block">
+                                <div>About us</div>
+                            </a>
+                            <a href="/blogs" class="nav-link desktop w-inline-block">
+                                <div>Blog</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="nav-button-wr">
+                        <div class="div-block-757">
+                            <div class="search-wrapper click"><a href="#" class="action-btn search w-button"></a></div>
+                        </div>
+                        <a href="/contact-us" aria-current="page" class="button main-cta w-inline-block w--current">
+                            <div class="btn-padding">
+                                <div class="label">Contact</div>
+                            </div>
+                            <div class="css-button__style w-embed">
+                                <style>
+                                    @media (min-width: 992px) {
+                                        .button {
+                                            background-size: 300%;
+                                        }
+
+                                        .button:hover,
+                                        .button:focus {
+                                            background-position: right;
+                                        }
+                                    }
+
+                                    @media (min-width: 1px) {
+                                        .button {
+                                            background-size: 300%;
+                                            background-position: left;
+                                        }
+                                    }
+                                </style>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+
+        <!-- Mobile Navigation -->
+        <div class="nav mobile">
+            <div class="container-regular">
+                <div class="nav-b-mobile">
+                    <div class="div-block-572">
+                        <a href="/" class="nav-brand w-nav-brand">
+                            <span class="qlystra-text-logo">Qlystra</span>
+                        </a>
+                        <div class="div-block-767">
+                            <div class="search-wrapper click mobile-hide"><a href="#"
+                                    class="action-btn search w-button"></a></div>
+                            <div data-w-id="mobile-menu-button" class="menu-button">
+                                <div class="top_line"></div>
+                                <div class="bottom_line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-block-392">
+                        <div class="links_block">
+                            <a href="/what-we-do" class="nav-link w-inline-block">
+                                <div>What We Do</div>
+                            </a>
+                            <a href="/our-approach" class="nav-link w-inline-block">
+                                <div>Our Approach</div>
+                            </a>
+                            <a href="/about-us" class="nav-link w-inline-block">
+                                <div>About Us</div>
+                            </a>
+                            <a href="/blogs" class="nav-link w-inline-block">
+                                <div>Blog</div>
+                            </a>
+                        </div>
+                        <div class="nav-button-wr">
+                            <a href="/contact-us" aria-current="page" class="button main-cta w-inline-block w--current">
+                                <div class="btn-padding">
+                                    <div class="label">Contact</div>
+                                </div>
+                                <div class="css-button__style w-embed">
+                                    <style>
+                                        @media (min-width: 992px) {
+                                            .button {
+                                                background-size: 300%;
+                                            }
+
+                                            .button:hover,
+                                            .button:focus {
+                                                background-position: right;
+                                            }
+                                        }
+
+                                        @media (min-width: 1px) {
+                                            .button {
+                                                background-size: 300%;
+                                                background-position: left;
+                                            }
+                                        }
+                                    </style>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="contact-hero">
