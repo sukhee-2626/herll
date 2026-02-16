@@ -14,6 +14,11 @@
             "source": "/approach",
             "destination": "/our-approach.html",
             "permanent": false
+        },
+        {
+            "source": "/where-we-fit",
+            "destination": "/where-we-fit.html",
+            "permanent": false
         }
     ],
     "rewrites": [

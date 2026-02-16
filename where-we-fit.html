@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="www.Qlystra Technologies.com" data-wf-page="where-we-fit"
+    data-wf-site="6720dd1ab6df0da205830ab1">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where We Fit | Qlystra Technologies</title>
+    <meta name="description"
+        content="Explore our portfolio of innovative projects across e-commerce, agriculture, and fitness domains.">
+
+    <!-- Webflow CSS -->
+    <link href="css/eterna-stage.webflow.shared.1aee94b13.css" rel="stylesheet" type="text/css" crossorigin="anonymous">
+    <link href="css/qlystra-responsive.css" rel="stylesheet" type="text/css">
+
+    <!-- Favicon -->
+    <link href="images/67937f3904e46a3162e1e73b_32x32.png" rel="shortcut icon" type="image/x-icon">
+    <link href="images/67937f3d0e2cec47d8da89af_256x256.png" rel="apple-touch-icon">
+
+    <!-- Navigation Active State Styling -->
+    <style>
+        @media screen and (min-width: 768px) {
+            .nav-link.w--current {
+                position: relative;
+            }
+
+            .nav-link.w--current::before,
+            .nav-link.w--current::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 0.139vw;
+                background: linear-gradient(to right, #1B4DFE, #AC24FF, #E59DFA, #FFD600, #FE881B);
+            }
+
+            .nav-link.w--current::before {
+                top: 0;
+            }
+
+            .nav-link.w--current::after {
+                bottom: 0;
+            }
+        }
+
+        /* Where We Fit Section Styles */
+        .where-we-fit-section {
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            min-height: 100vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #1B4DFE, #AC24FF, #E59DFA, #FFD600, #FE881B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(27, 77, 254, 0.1), rgba(172, 36, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(172, 36, 255, 0.5);
+            box-shadow: 0 20px 60px rgba(172, 36, 255, 0.3);
+        }
+
+        .project-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tag {
+            background: rgba(172, 36, 255, 0.2);
+            border: 1px solid rgba(172, 36, 255, 0.4);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #E59DFA;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #1B4DFE, #AC24FF);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(172, 36, 255, 0.4);
+        }
+
+        .project-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .where-we-fit-section {
+                padding: 80px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="body_dark">
+    <!-- Navigation -->
+    <div class="navbar-no-shadow">
+        <div class="nav desktop">
+            <div class="container-regular">
+                <div class="nav-b-desktop"><a aria-label="navigation" data-w-id="f0fe29de-1cc3-20da-42cd-1a8d15d398d4"
+                        href="/" class="nav-brand w-nav-brand">
+                        <span class="qlystra-text-logo">Qlystra</span>
+                    </a>
+                    <div class="nav-menu-wrapper">
+                        <div class="links_block"><a href="/what-we-do" class="nav-link desktop w-inline-block">
+                                <div>What We Do</div>
+                            </a><a href="/our-approach" class="nav-link desktop w-inline-block">
+                                <div>Our approach</div>
+                            </a><a href="/about-us" class="nav-link desktop w-inline-block">
+                                <div>About us</div>
+                            </a><a href="/where-we-fit" aria-current="page"
+                                class="nav-link desktop w-inline-block w--current">
+                                <div>Where We Fit</div>
+                            </a><a href="/blogs" class="nav-link desktop w-inline-block">
+                                <div>Blog</div>
+                            </a></div>
+                    </div>
+                    <div class="nav-button-wr">
+                        <div class="div-block-757">
+                            <div class="search-wrapper click"><a href="#" class="action-btn search w-button"></a></div>
+                        </div><a href="/contact-us" class="button main-cta w-inline-block">
+                            <div class="btn-padding">
+                                <div class="label">Contact</div>
+                            </div>
+                            <div class="css-button__style w-embed">
+                                <style>
+                                    @media (min-width: 992px) {
+                                        .button {
+                                            background-size: 300%;
+                                        }
+
+                                        .button:hover,
+                                        .button:focus {
+                                            background-position: right;
+                                        }
+                                    }
+
+                                    @media (min-width: 1px) {
+                                        .button {
+                                            background-size: 300%;
+                                            background-position: left;
+                                        }
+                                    }
+                                </style>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav mobile">
+            <div class="container-regular">
+                <div class="nav-b-mobile">
+                    <div class="div-block-572"><a data-w-id="5425d633-a66a-a157-faf7-9811c416425a" href="/"
+                            class="nav-brand w-nav-brand">
+                            <span class="qlystra-text-logo">Qlystra</span>
+                        </a>
+                        <div class="div-block-767">
+                            <div class="search-wrapper click mobile-hide"><a href="#"
+                                    class="action-btn search w-button"></a></div>
+                            <div data-w-id="5425d633-a66a-a157-faf7-9811c416425d" class="menu-button">
+                                <div class="top_line"></div>
+                                <div class="bottom_line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-block-392">
+                        <div class="links_block"><a href="/what-we-do" class="nav-link w-inline-block">
+                                <div>What We Do</div>
+                            </a><a href="/our-approach" class="nav-link w-inline-block">
+                                <div>Our Approach</div>
+                            </a><a href="/about-us" class="nav-link w-inline-block">
+                                <div>About Us</div>
+                            </a><a href="/where-we-fit" aria-current="page" class="nav-link w-inline-block w--current">
+                                <div>Where We Fit</div>
+                            </a><a href="/blogs" class="nav-link w-inline-block">
+                                <div>Blog</div>
+                            </a></div>
+                        <div class="nav-button-wr"><a href="/contact-us" class="button main-cta w-inline-block">
+                                <div class="btn-padding">
+                                    <div class="label">Contact</div>
+                                </div>
+                                <div class="css-button__style w-embed">
+                                    <style>
+                                        @media (min-width: 992px) {
+                                            .button {
+                                                background-size: 300%;
+                                            }
+
+                                            .button:hover,
+                                            .button:focus {
+                                                background-position: right;
+                                            }
+                                        }
+
+                                        @media (min-width: 1px) {
+                                            .button {
+                                                background-size: 300%;
+                                                background-position: left;
+                                            }
+                                        }
+                                    </style>
+                                </div>
+                            </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Where We Fit Section -->
+    <section id="where-we-fit" class="where-we-fit-section">
+        <h1 class="section-title">Where We Fit</h1>
+        <p class="section-subtitle">Explore our portfolio of innovative projects across diverse domains, showcasing our
+            expertise in modern web technologies and full-stack development.</p>
+
+        <div class="projects-grid">
+            <!-- Project 1: Kurtis Boutique -->
+            <div class="project-card">
+                <h2 class="project-title">Kurtis Boutique</h2>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">E-commerce Platform</p>
+                <div class="project-tags">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Prisma</span>
+                    <span class="tag">Supabase</span>
+                    <span class="tag">SEO</span>
+                    <span class="tag">Razorpay</span>
+                    <span class="tag">Admin Panel</span>
+                </div>
+                <a href="https://kurtisboutiquestore.vercel.app" target="_blank" rel="noopener noreferrer"
+                    class="project-link">
+                    Visit Project
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Project 2: Milk Venture App -->
+            <div class="project-card">
+                <h2 class="project-title">Milk Venture App</h2>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Agricultural Management System</p>
+                <div class="project-tags">
+                    <span class="tag">PHP Laravel</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">HTML5</span>
+                    <span class="tag">SQL</span>
+                </div>
+                <a href="https://shiva-farm.rf.gd/index.php" target="_blank" rel="noopener noreferrer"
+                    class="project-link">
+                    Visit Project
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Project 3: MFP GYM -->
+            <div class="project-card">
+                <h2 class="project-title">MFP GYM</h2>
+                <p style="color: #b0b0b0; margin-bottom: 15px;">Fitness Management Platform</p>
+                <div class="project-tags">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Prisma</span>
+                    <span class="tag">Supabase</span>
+                    <span class="tag">SEO</span>
+                    <span class="tag">Razorpay</span>
+                    <span class="tag">Admin Panel</span>
+                    <span class="tag">Vercel</span>
+                </div>
+                <a href="https://mfp-gym-five.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    class="project-link">
+                    Visit Project
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/scrolldisable.js"></script>
+</body>
+
+</html>
