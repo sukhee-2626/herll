@@ -1880,181 +1880,287 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Project Cards Grid -->
-                    <div
-                        style="max-width: 1200px; margin: 60px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 20px;">
-
-                        <!-- Project 1: Kurtis Boutique -->
-                        <div class="cell_border-2"
-                            style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer;"
-                            onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(200, 111, 255, 0.3)';"
-                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                            <!-- Preview Image -->
-                            <div
-                                style="width: 100%; height: 200px; background: linear-gradient(135deg, #FF6B9D 0%, #C86FFF 100%); position: relative; overflow: hidden;">
+                    <!-- Project Marquee -->
+                    <div class="marquee-wrapper">
+                        <div class="marquee-track">
+                            <!-- Project 1: Kurtis Boutique -->
+                            <div class="cell_border-2" onclick="openProjectModal('kurtis')"
+                                style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer; min-width: 320px; width: 350px; flex-shrink: 0;"
+                                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(200, 111, 255, 0.3)';"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                                 <div
-                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
-                                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 3H21V21H3V3Z" stroke="white" stroke-width="1.5"
-                                            stroke-opacity="0.3" />
-                                        <path d="M7 7H17M7 12H17M7 17H13" stroke="white" stroke-width="2"
-                                            stroke-linecap="round" />
-                                        <circle cx="18" cy="8" r="2" fill="white" fill-opacity="0.8" />
-                                    </svg>
+                                    style="width: 100%; height: 200px; background: linear-gradient(135deg, #FF6B9D 0%, #C86FFF 100%); position: relative; overflow: hidden;">
                                     <div
-                                        style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
-                                        E-COMMERCE</div>
+                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3 3H21V21H3V3Z" stroke="white" stroke-width="1.5"
+                                                stroke-opacity="0.3" />
+                                            <path d="M7 7H17M7 12H17M7 17H13" stroke="white" stroke-width="2"
+                                                stroke-linecap="round" />
+                                            <circle cx="18" cy="8" r="2" fill="white" fill-opacity="0.8" />
+                                        </svg>
+                                        <div
+                                            style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
+                                            E-COMMERCE</div>
+                                    </div>
+                                </div>
+                                <div style="padding: 30px;">
+                                    <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">Kurtis Boutique</h4>
+                                    <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">E-commerce
+                                        Platform</p>
+                                    <div class="tags_wrap" style="margin-bottom: 25px;">
+                                        <div class="tag-solutions">
+                                            <div>Next.js</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Prisma</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Supabase</div>
+                                        </div>
+                                    </div>
+                                    <div class="button main-cta w-inline-block"
+                                        style="display: inline-flex; width: 100%; justify-content: center;">
+                                        <div class="btn-padding">
+                                            <div class="label">View Details</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div style="padding: 30px;">
-                                <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">Kurtis Boutique</h4>
-                                <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">E-commerce
-                                    Platform
-                                </p>
-                                <div class="tags_wrap" style="margin-bottom: 25px;">
-                                    <div class="tag-solutions">
-                                        <div>Next.js</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Prisma</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Supabase</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>SEO</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Razorpay</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Admin Panel</div>
+
+                            <!-- Project 2: Milk Venture App -->
+                            <div class="cell_border-2" onclick="openProjectModal('milk')"
+                                style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer; min-width: 320px; width: 350px; flex-shrink: 0;"
+                                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(76, 175, 80, 0.3)';"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                                <div
+                                    style="width: 100%; height: 200px; background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); position: relative; overflow: hidden;">
+                                    <div
+                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12 2C10.3431 2 9 3.34315 9 5C9 6.65685 10.3431 8 12 8C13.6569 8 15 6.65685 15 5C15 3.34315 13.6569 2 12 2Z"
+                                                stroke="white" stroke-width="2" />
+                                            <path d="M12 8V22M8 12H16M6 16H18M4 20H20" stroke="white" stroke-width="2"
+                                                stroke-linecap="round" />
+                                        </svg>
+                                        <div
+                                            style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
+                                            AGRICULTURE</div>
                                     </div>
                                 </div>
-                                <a href="https://kurtisboutiquestore.vercel.app" target="_blank"
-                                    class="button main-cta w-inline-block"
-                                    style="display: inline-flex; width: 100%; justify-content: center;">
-                                    <div class="btn-padding">
-                                        <div class="label">Visit Project →</div>
+                                <div style="padding: 30px;">
+                                    <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">Milk Venture App</h4>
+                                    <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">
+                                        Agricultural Management System</p>
+                                    <div class="tags_wrap" style="margin-bottom: 25px;">
+                                        <div class="tag-solutions">
+                                            <div>PHP Laravel</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Tailwind CSS</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>SQL</div>
+                                        </div>
                                     </div>
-                                </a>
+                                    <div class="button main-cta w-inline-block"
+                                        style="display: inline-flex; width: 100%; justify-content: center;">
+                                        <div class="btn-padding">
+                                            <div class="label">View Details</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 3: MFP GYM -->
+                            <div class="cell_border-2" onclick="openProjectModal('mfp')"
+                                style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer; min-width: 320px; width: 350px; flex-shrink: 0;"
+                                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(255, 87, 34, 0.3)';"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                                <div
+                                    style="width: 100%; height: 200px; background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%); position: relative; overflow: hidden;">
+                                    <div
+                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 7H18M6 12H18M6 17H12" stroke="white" stroke-width="2"
+                                                stroke-linecap="round" />
+                                            <circle cx="12" cy="12" r="8" stroke="white" stroke-width="2"
+                                                stroke-opacity="0.3" />
+                                            <path d="M12 8V12L15 15" stroke="white" stroke-width="2"
+                                                stroke-linecap="round" />
+                                        </svg>
+                                        <div
+                                            style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
+                                            FITNESS</div>
+                                    </div>
+                                </div>
+                                <div style="padding: 30px;">
+                                    <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">MFP GYM</h4>
+                                    <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">Fitness
+                                        Management Platform</p>
+                                    <div class="tags_wrap" style="margin-bottom: 25px;">
+                                        <div class="tag-solutions">
+                                            <div>Next.js</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Prisma</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Admin</div>
+                                        </div>
+                                    </div>
+                                    <div class="button main-cta w-inline-block"
+                                        style="display: inline-flex; width: 100%; justify-content: center;">
+                                        <div class="btn-padding">
+                                            <div class="label">View Details</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Duplicates for Marquee Effect -->
+                            <!-- Project 1 Copy -->
+                            <div class="cell_border-2" onclick="openProjectModal('kurtis')"
+                                style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer; min-width: 320px; width: 350px; flex-shrink: 0;"
+                                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(200, 111, 255, 0.3)';"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                                <div
+                                    style="width: 100%; height: 200px; background: linear-gradient(135deg, #FF6B9D 0%, #C86FFF 100%); position: relative; overflow: hidden;">
+                                    <div
+                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3 3H21V21H3V3Z" stroke="white" stroke-width="1.5"
+                                                stroke-opacity="0.3" />
+                                            <path d="M7 7H17M7 12H17M7 17H13" stroke="white" stroke-width="2"
+                                                stroke-linecap="round" />
+                                            <circle cx="18" cy="8" r="2" fill="white" fill-opacity="0.8" />
+                                        </svg>
+                                        <div
+                                            style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
+                                            E-COMMERCE</div>
+                                    </div>
+                                </div>
+                                <div style="padding: 30px;">
+                                    <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">Kurtis Boutique</h4>
+                                    <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">E-commerce
+                                        Platform</p>
+                                    <div class="tags_wrap" style="margin-bottom: 25px;">
+                                        <div class="tag-solutions">
+                                            <div>Next.js</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Prisma</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Supabase</div>
+                                        </div>
+                                    </div>
+                                    <div class="button main-cta w-inline-block"
+                                        style="display: inline-flex; width: 100%; justify-content: center;">
+                                        <div class="btn-padding">
+                                            <div class="label">View Details</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2 Copy -->
+                            <div class="cell_border-2" onclick="openProjectModal('milk')"
+                                style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer; min-width: 320px; width: 350px; flex-shrink: 0;"
+                                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(76, 175, 80, 0.3)';"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                                <div
+                                    style="width: 100%; height: 200px; background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); position: relative; overflow: hidden;">
+                                    <div
+                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12 2C10.3431 2 9 3.34315 9 5C9 6.65685 10.3431 8 12 8C13.6569 8 15 6.65685 15 5C15 3.34315 13.6569 2 12 2Z"
+                                                stroke="white" stroke-width="2" />
+                                            <path d="M12 8V22M8 12H16M6 16H18M4 20H20" stroke="white" stroke-width="2"
+                                                stroke-linecap="round" />
+                                        </svg>
+                                        <div
+                                            style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
+                                            AGRICULTURE</div>
+                                    </div>
+                                </div>
+                                <div style="padding: 30px;">
+                                    <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">Milk Venture App</h4>
+                                    <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">
+                                        Agricultural Management System</p>
+                                    <div class="tags_wrap" style="margin-bottom: 25px;">
+                                        <div class="tag-solutions">
+                                            <div>PHP Laravel</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Tailwind CSS</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>SQL</div>
+                                        </div>
+                                    </div>
+                                    <div class="button main-cta w-inline-block"
+                                        style="display: inline-flex; width: 100%; justify-content: center;">
+                                        <div class="btn-padding">
+                                            <div class="label">View Details</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 3 Copy -->
+                            <div class="cell_border-2" onclick="openProjectModal('mfp')"
+                                style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer; min-width: 320px; width: 350px; flex-shrink: 0;"
+                                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(255, 87, 34, 0.3)';"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                                <div
+                                    style="width: 100%; height: 200px; background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%); position: relative; overflow: hidden;">
+                                    <div
+                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 7H18M6 12H18M6 17H12" stroke="white" stroke-width="2"
+                                                stroke-linecap="round" />
+                                            <circle cx="12" cy="12" r="8" stroke="white" stroke-width="2"
+                                                stroke-opacity="0.3" />
+                                            <path d="M12 8V12L15 15" stroke="white" stroke-width="2"
+                                                stroke-linecap="round" />
+                                        </svg>
+                                        <div
+                                            style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
+                                            FITNESS</div>
+                                    </div>
+                                </div>
+                                <div style="padding: 30px;">
+                                    <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">MFP GYM</h4>
+                                    <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">Fitness
+                                        Management Platform</p>
+                                    <div class="tags_wrap" style="margin-bottom: 25px;">
+                                        <div class="tag-solutions">
+                                            <div>Next.js</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Prisma</div>
+                                        </div>
+                                        <div class="tag-solutions">
+                                            <div>Admin</div>
+                                        </div>
+                                    </div>
+                                    <div class="button main-cta w-inline-block"
+                                        style="display: inline-flex; width: 100%; justify-content: center;">
+                                        <div class="btn-padding">
+                                            <div class="label">View Details</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <!-- Project 2: Milk Venture App -->
-                        <div class="cell_border-2"
-                            style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer;"
-                            onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(76, 175, 80, 0.3)';"
-                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                            <!-- Preview Image -->
-                            <div
-                                style="width: 100%; height: 200px; background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); position: relative; overflow: hidden;">
-                                <div
-                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
-                                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M12 2C10.3431 2 9 3.34315 9 5C9 6.65685 10.3431 8 12 8C13.6569 8 15 6.65685 15 5C15 3.34315 13.6569 2 12 2Z"
-                                            stroke="white" stroke-width="2" />
-                                        <path d="M12 8V22M8 12H16M6 16H18M4 20H20" stroke="white" stroke-width="2"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                    <div
-                                        style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
-                                        AGRICULTURE</div>
-                                </div>
-                            </div>
-                            <div style="padding: 30px;">
-                                <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">Milk Venture App</h4>
-                                <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">Agricultural
-                                    Management System</p>
-                                <div class="tags_wrap" style="margin-bottom: 25px;">
-                                    <div class="tag-solutions">
-                                        <div>PHP Laravel</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Tailwind CSS</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>HTML5</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>SQL</div>
-                                    </div>
-                                </div>
-                                <a href="https://shiva-farm.rf.gd/index.php" target="_blank"
-                                    class="button main-cta w-inline-block"
-                                    style="display: inline-flex; width: 100%; justify-content: center;">
-                                    <div class="btn-padding">
-                                        <div class="label">Visit Project →</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Project 3: MFP GYM -->
-                        <div class="cell_border-2"
-                            style="padding: 0; background: rgba(255, 255, 255, 0.02); border-radius: 16px; transition: all 0.3s ease; overflow: hidden; cursor: pointer;"
-                            onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(255, 87, 34, 0.3)';"
-                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                            <!-- Preview Image -->
-                            <div
-                                style="width: 100%; height: 200px; background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%); position: relative; overflow: hidden;">
-                                <div
-                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
-                                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 7H18M6 12H18M6 17H12" stroke="white" stroke-width="2"
-                                            stroke-linecap="round" />
-                                        <circle cx="12" cy="12" r="8" stroke="white" stroke-width="2"
-                                            stroke-opacity="0.3" />
-                                        <path d="M12 8V12L15 15" stroke="white" stroke-width="2"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                    <div
-                                        style="color: white; font-size: 12px; margin-top: 10px; opacity: 0.9; font-weight: 600;">
-                                        FITNESS</div>
-                                </div>
-                            </div>
-                            <div style="padding: 30px;">
-                                <h4 class="white" style="margin-bottom: 8px; font-size: 22px;">MFP GYM</h4>
-                                <p class="text-grey-light" style="margin-bottom: 20px; font-size: 14px;">Fitness
-                                    Management
-                                    Platform</p>
-                                <div class="tags_wrap" style="margin-bottom: 25px;">
-                                    <div class="tag-solutions">
-                                        <div>Next.js</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Prisma</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Supabase</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>SEO</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Razorpay</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Admin Panel</div>
-                                    </div>
-                                    <div class="tag-solutions">
-                                        <div>Vercel</div>
-                                    </div>
-                                </div>
-                                <a href="https://mfp-gym-five.vercel.app/" target="_blank"
-                                    class="button main-cta w-inline-block"
-                                    style="display: inline-flex; width: 100%; justify-content: center;">
-                                    <div class="btn-padding">
-                                        <div class="label">Visit Project →</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -2398,14 +2504,14 @@
                                 </a><a href="/about-us#join-our-team" class="button-gradient w-inline-block">
                                     <div class="label margins">Join our team</div>
                                 </a></div>
-                            <div class="bottom-nav-wrapper"><a href="/what-we-do" aria-current="page"
+                            <div class="bottom-nav-wrapper"><a href="#what-we-do" aria-current="page"
                                     class="footer_link small _17 w-inline-block w--current">
                                     <div>What we do</div>
-                                </a><a href="/our-approach" class="footer_link small _17 w-inline-block">
+                                </a><a href="our-approach.html" class="footer_link small _17 w-inline-block">
                                     <div>Our Approach</div>
-                                </a><a href="/about-us" class="footer_link small _17 w-inline-block">
+                                </a><a href="about-us.html" class="footer_link small _17 w-inline-block">
                                     <div>About Us</div>
-                                </a><a href="/insights" class="footer_link small _17 w-inline-block">
+                                </a><a href="insights.html" class="footer_link small _17 w-inline-block">
                                     <div>Insights</div>
                                 </a></div>
                         </div>
@@ -3054,6 +3160,331 @@
 
     <script src="js/bundle.v1.0.0.js"></script>
     <script src="js/demo-modal.js"></script>
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="project-modal" onclick="closeProjectModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-modal" onclick="closeProjectModal(event)">×</button>
+            <div class="modal-body">
+                <div class="modal-image-wrapper">
+                    <div id="modalImageGradient" class="modal-image-gradient"></div>
+                    <div class="modal-icon-wrapper" id="modalIcon"></div>
+                    <div class="modal-category" id="modalCategory"></div>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle" class="modal-title">Project Title</h2>
+                    <p id="modalSubtitle" class="modal-subtitle">Subtitle</p>
+                    <div id="modalTags" class="modal-tags"></div>
+                    <div class="modal-description">
+                        <h3>About the Project</h3>
+                        <p id="modalDescription">Description goes here...</p>
+
+                        <h3>Key Features</h3>
+                        <ul id="modalFeatures" class="modal-features-list">
+                            <li>Feature 1</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="modalLink" href="#" target="_blank" class="button main-cta w-inline-block">
+                    <div class="btn-padding">
+                        <div class="label">Visit Live Project →</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Marquee Styles */
+        .marquee-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100vw;
+            padding: 40px 0;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 30px;
+            width: max-content;
+            animation: scroll-marquee 40s linear infinite;
+        }
+
+        .marquee-wrapper:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Modal Styles */
+        .project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .project-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: #1a1a2e;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s;
+        }
+
+        .close-modal:hover {
+            background: white;
+            color: black;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .modal-image-wrapper {
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .modal-image-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .modal-category {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-details {
+            padding: 40px;
+        }
+
+        .modal-title {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 5px;
+            font-family: var(--font-display, sans-serif);
+        }
+
+        .modal-subtitle {
+            color: #b8b8d1;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .modal-description h3 {
+            color: white;
+            font-size: 18px;
+            margin: 25px 0 15px;
+        }
+
+        .modal-description p {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        .modal-features-list {
+            color: #a0aec0;
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-footer {
+            padding: 20px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: right;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image-wrapper {
+                min-height: 200px;
+            }
+
+            .modal-details {
+                padding: 25px;
+            }
+        }
+    </style>
+
+    <script>
+        // Project Data
+        const projectsData = {
+            'kurtis': {
+                title: 'Kurtis Boutique',
+                subtitle: 'E-commerce Platform',
+                category: 'E-COMMERCE',
+                gradient: 'linear-gradient(135deg, #FF6B9D 0%, #C86FFF 100%)',
+                description: 'A full-featured modern e-commerce platform built for high performance and SEO. Features a custom admin dashboard for inventory management, secure payment processing, and a seamless shopping experience.',
+                features: ['Next.js App Router Architecture', 'Secure Razerpay Payment Integration', 'Real-time Inventory Management', 'Advanced SEO Optimization', 'Admin Dashboard with Analytics'],
+                tags: ['Next.js', 'Prisma', 'Supabase', 'SEO', 'Razorpay', 'Admin Panel'],
+                link: 'https://kurtisboutiquestore.vercel.app',
+                icon: '<svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3H21V21H3V3Z" stroke="white" stroke-width="1.5" stroke-opacity="0.3"/><path d="M7 7H17M7 12H17M7 17H13" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="8" r="2" fill="white" fill-opacity="0.8"/></svg>'
+            },
+            'milk': {
+                title: 'Milk Venture App',
+                subtitle: 'Agricultural Management System',
+                category: 'AGRICULTURE',
+                gradient: 'linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%)',
+                description: 'A comprehensive solution for dairy farm management. It simplifies milk collection logging, payments, and farmer management. Designed to operate efficiently in low-bandwidth rural environments.',
+                features: ['Farmer & Livestock Database', 'Daily Production Tracking', 'Automated Payment Calculations', 'Offline-first Capabilities', 'Detailed Reporting & Analytics'],
+                tags: ['PHP Laravel', 'Tailwind CSS', 'HTML5', 'SQL', 'MySQL'],
+                link: 'https://shiva-farm.rf.gd/index.php',
+                icon: '<svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10.3431 2 9 3.34315 9 5C9 6.65685 10.3431 8 12 8C13.6569 8 15 6.65685 15 5C15 3.34315 13.6569 2 12 2Z" stroke="white" stroke-width="2"/><path d="M12 8V22M8 12H16M6 16H18M4 20H20" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>'
+            },
+            'mfp': {
+                title: 'MFP GYM',
+                subtitle: 'Fitness Management Platform',
+                category: 'FITNESS',
+                gradient: 'linear-gradient(135deg, #FF5722 0%, #FF9800 100%)',
+                description: 'An all-in-one platform for gym owners to manage members, memberships, and attendance. Includes features for class scheduling and billing.',
+                features: ['Member Management System', 'Automated Billing & Invoicing', 'Class Scheduling', 'Attendance Tracking', 'Responsive Design'],
+                tags: ['Next.js', 'Prisma', 'Supabase', 'SEO', 'Razorpay', 'Admin Panel', 'Vercel'],
+                link: 'https://mfp-gym-five.vercel.app/',
+                icon: '<svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 7H18M6 12H18M6 17H12" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="8" stroke="white" stroke-width="2" stroke-opacity="0.3"/><path d="M12 8V12L15 15" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>'
+            }
+        };
+
+        function openProjectModal(id) {
+            const data = projectsData[id];
+            if (!data) return;
+
+            // Populate Modal
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalSubtitle').innerText = data.subtitle;
+            document.getElementById('modalDescription').innerText = data.description;
+            document.getElementById('modalCategory').innerText = data.category;
+            document.getElementById('modalLink').href = data.link;
+
+            // Gradient & Icon
+            document.getElementById('modalImageGradient').style.background = data.gradient;
+            document.getElementById('modalIcon').innerHTML = data.icon;
+
+            // Tags
+            const tagsContainer = document.getElementById('modalTags');
+            tagsContainer.innerHTML = '';
+            data.tags.forEach(tag => {
+                const tagEl = document.createElement('div');
+                tagEl.className = 'tag-solutions';
+                tagEl.innerHTML = `<div>${tag}</div>`;
+                tagsContainer.appendChild(tagEl);
+            });
+
+            // Features
+            const featuresContainer = document.getElementById('modalFeatures');
+            featuresContainer.innerHTML = '';
+            data.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.innerText = feature;
+                featuresContainer.appendChild(li);
+            });
+
+            // Show Modal
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeProjectModal(e) {
+            if (e) e.preventDefault();
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+    </script>
 </body>
 
 </html>
