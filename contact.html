@@ -9,6 +9,7 @@
     <!-- Webflow CSS -->
     <link href="css/eterna-stage.webflow.shared.1aee94b13.css" rel="stylesheet" type="text/css" crossorigin="anonymous">
     <link href="css/qlystra-responsive.css" rel="stylesheet" type="text/css">
+    <link href="css/nav-overlay.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,66 +36,7 @@
             line-height: 1.6;
         }
 
-        /* Navbar */
-        .navbar {
-            background: #0f0f1e;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            /* Added brand font */
-            font-size: 28px;
-            /* Slightly larger */
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-            background: linear-gradient(135deg, #C86FFF 0%, #8B5CF6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: inline-block;
-            /* Ensure gradient works properly */
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #b8b8d1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #C86FFF;
-        }
-
-        .contact-btn {
-            background: linear-gradient(135deg, #C86FFF 0%, #8B5CF6 100%);
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-        }
 
         /* Hero Section */
         .hero {
@@ -243,30 +185,49 @@
             font-weight: 400;
         }
 
+        .submit-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 48px;
+            padding-bottom: 20px;
+        }
+
         .submit-btn {
-            display: block;
-            width: 150px;
-            margin: 40px auto 0;
-            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 250px;
+            height: 56px;
             background: linear-gradient(135deg, #C86FFF 0%, #8B5CF6 100%);
-            color: white;
+            color: #ffffff;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: center;
+            box-shadow: 0 10px 20px rgba(200, 111, 255, 0.2);
+            position: relative;
+            z-index: 10;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(200, 111, 255, 0.3);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(200, 111, 255, 0.4);
+            background: linear-gradient(135deg, #d48cff 0%, #9d75ff 100%);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-2px) scale(0.98);
         }
 
         .submit-btn:disabled {
-            opacity: 0.6;
+            opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
         }
 
         /* Footer */
@@ -351,19 +312,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Qlystra</a>
-            <div class="nav-links">
-                <a href="index.html#what-we-do">What We Do</a>
-                <a href="our-approach.html">Our Approach</a>
-                <a href="about-us.html">About Us</a>
-                <a href="where-we-fit.html">Where We Fit</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html" class="contact-btn active">Contact</a>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -446,52 +395,17 @@
                     <label for="newsletter">Subscribe to our newsletter for updates and insights</label>
                 </div>
 
-                <button type="submit" class="submit-btn">Send Message →</button>
+                <div class="submit-btn-wrapper">
+                    <button type="submit" class="submit-btn">Send Message →</button>
+                </div>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Qlystra Technologies</h4>
-                <p style="color: #b8b8d1;">Nothing is impossible</p>
-            </div>
+    <div id="footer-placeholder"></div>
 
-            <div class="footer-section">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html#what-we-do">What we do</a></li>
-                    <li><a href="our-approach.html">Our Approach</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Join Us</h4>
-                <ul>
-                    <li><a href="about-us.html#join-our-team">Join our team</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="security.html">Security</a></li>
-                    <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="terms.html">Terms</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Qlystra Technologies. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <script src="js/load-components.js"></script>
     <script src="contact.js"></script>
 </body>
 

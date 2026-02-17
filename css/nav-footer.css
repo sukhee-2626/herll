@@ -1,0 +1,316 @@
+/* CSS Variables for Navbar and Footer */
+:root {
+    --nav-color-primary: hsl(240, 100%, 65%);
+    --nav-color-bg: hsla(240, 15%, 8%, 0.8);
+    --nav-color-border: hsla(0, 0%, 100%, 0.1);
+    --nav-color-text-primary: hsl(0, 0%, 98%);
+    --nav-color-text-secondary: hsl(0, 0%, 75%);
+    --nav-gradient-primary: linear-gradient(135deg, hsl(240, 100%, 65%) 0%, hsl(280, 100%, 70%) 100%);
+    --nav-font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --nav-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--nav-color-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--nav-color-border);
+    transition: all 0.3s ease;
+    padding: 0;
+    /* Reset padding */
+    height: auto;
+    /* Reset height */
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo h1 {
+    font-family: var(--nav-font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--nav-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    font-family: var(--nav-font-primary);
+    color: var(--nav-color-text-secondary);
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.15s ease;
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--nav-gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--nav-color-text-primary);
+}
+
+.nav-links .btn-primary {
+    background: var(--nav-gradient-primary);
+    background-size: 300%;
+    background-position: left;
+    color: white !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+
+.nav-links .btn-primary:hover {
+    background-position: right;
+    transform: translateY(-2px);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: var(--nav-color-text-primary);
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: hsla(240, 15%, 8%, 0.95);
+        flex-direction: column;
+        padding: 2rem;
+        border-bottom: 1px solid var(--nav-color-border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background: hsla(240, 15%, 8%, 1);
+    border-top: 1px solid var(--nav-color-border);
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+    /* Ensure spacing from content */
+}
+
+/* Verticals Marquee Styles */
+.verticals-section {
+    padding: 6rem 0;
+    background: var(--nav-color-bg);
+    overflow: hidden;
+}
+
+.verticals-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-family: var(--nav-font-display);
+    color: var(--nav-color-text-primary);
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--nav-color-bg), transparent);
+}
+
+.marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--nav-color-bg), transparent);
+}
+
+.marquee-content {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.vertical-card {
+    background: hsla(240, 12%, 12%, 0.5);
+    border: 1px solid var(--nav-color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    min-width: 300px;
+    max-width: 300px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.vertical-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--nav-color-primary);
+    background: hsla(240, 12%, 16%, 0.8);
+}
+
+.vertical-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.vertical-card h3 {
+    font-family: var(--nav-font-display);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--nav-color-text-primary);
+}
+
+.vertical-card p {
+    font-family: var(--nav-font-primary);
+    font-size: 0.9rem;
+    color: var(--nav-color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    font-family: var(--nav-font-display);
+    color: var(--nav-color-text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    background: var(--nav-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-section h4 {
+    font-size: 1.125rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+    font-family: var(--nav-font-primary);
+    color: var(--nav-color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.footer-section a:hover {
+    color: var(--nav-color-primary);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--nav-color-border);
+    padding-top: 2rem;
+    text-align: center;
+    color: var(--nav-color-text-secondary);
+    font-size: 0.875rem;
+    font-family: var(--nav-font-primary);
+}
