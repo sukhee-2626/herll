@@ -139,6 +139,14 @@
         type="text/javascript"></script>
     <link rel="stylesheet" href="css/nav-overlay.css">
     <style>
+        /* Premium Card Design System */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-blur: blur(16px);
+            --card-radius: 24px;
+        }
+
         .wb-swiper-solutions {
             width: 100%;
             overflow: hidden;
@@ -150,14 +158,96 @@
             flex-wrap: nowrap !important;
         }
 
+        /* Swiper Solutions Cards */
         .solutions-slide {
             height: auto !important;
             display: flex !important;
+            padding: 20px !important;
         }
 
         .case-card.solutions {
             width: 100% !important;
             margin: 0 !important;
+            background: rgba(20, 20, 25, 0.6) !important;
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border) !important;
+            border-radius: var(--card-radius) !important;
+            padding: 35px !important;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card.solutions:hover {
+            transform: translateY(-12px) scale(1.02) !important;
+            border-color: var(--color-primary) !important;
+            background: rgba(30, 30, 40, 0.8) !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(99, 102, 241, 0.2) !important;
+        }
+
+        /* Where We Fit - Fit Boxes */
+        .fit-box {
+            background: rgba(30, 30, 40, 0.45) !important;
+            backdrop-filter: var(--glass-blur) !important;
+            border: 1px solid var(--glass-border) !important;
+            border-radius: var(--card-radius) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .fit-box:hover {
+            background: rgba(45, 45, 55, 0.7) !important;
+            border-color: rgba(200, 111, 255, 0.5) !important;
+            transform: translateY(-10px) scale(1.03) !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(200, 111, 255, 0.2) !important;
+        }
+
+        /* Approach Step Cards */
+        .approach-step-card {
+            background: rgba(255, 255, 255, 0.03) !important;
+            backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 20px !important;
+            padding: 35px !important;
+            transition: all 0.4s ease !important;
+        }
+
+        .approach-step-card:hover {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Testimonial Slides */
+        .basic-swiper-slide-content {
+            background: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border-radius: 20px !important;
+            padding: 40px !important;
+            text-align: center !important;
+            transition: all 0.3s ease !important;
+        }
+
+        /* Mobile Optimization */
+        @media screen and (max-width: 768px) {
+            .case-card.solutions {
+                padding: 25px !important;
+                border-radius: 20px !important;
+                height: 100% !important;
+            }
+
+            .fit-box {
+                padding: 24px !important;
+                border-radius: 18px !important;
+            }
+
+            .approach-step-card {
+                padding: 25px !important;
+                margin-bottom: 20px !important;
+            }
         }
     </style>
 </head>
@@ -1908,11 +1998,11 @@
 
                                         .fit-box {
                                             width: 100%;
-                                            /* Full width on mobile */
                                             margin-left: 0;
-                                            padding: 25px;
-                                            background: rgba(30, 30, 40, 0.8);
-                                            /* Stronger background on mobile */
+                                            padding: 30px 24px;
+                                            background: rgba(35, 35, 45, 0.9);
+                                            border-radius: 20px;
+                                            border-color: rgba(255, 255, 255, 0.05);
                                         }
 
                                         .fit-node-spacer {

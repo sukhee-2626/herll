@@ -69,7 +69,8 @@
 }
 
 .value-card {
-    background: var(--color-bg-tertiary);
+    background: hsla(240, 15%, 15%, 0.6);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
@@ -79,8 +80,9 @@
 
 .value-card:hover {
     border-color: var(--color-primary);
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+    background: hsla(240, 15%, 18%, 0.8);
 }
 
 .value-icon {
@@ -168,8 +170,8 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
-    padding: var(--spacing-md);
-    background: var(--color-bg-secondary);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: hsla(240, 15%, 12%, 0.5);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     transition: all var(--transition-base);
@@ -177,7 +179,9 @@
 
 .benefit-item:hover {
     border-color: var(--color-primary);
-    transform: translateX(5px);
+    transform: translateX(10px);
+    background: hsla(240, 15%, 15%, 0.8);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .benefit-icon {
